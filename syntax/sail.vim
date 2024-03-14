@@ -59,27 +59,36 @@ syntax match    sailPragma      "$include .*" contains=sailFilename
 syntax region   sailFilename    start=+<+ end=+>+ contained
 
 
-if version >= 508 || !exists("did_sail_syn_inits")
-   if version < 508
-      let did_sail_syn_inits = 1
-      command -nargs=+ HiLink hi link <args>
-   else
-      command -nargs=+ HiLink hi def link <args>
-   endif
-  HiLink sailNumber   Number
-  HiLink sailComment  Comment
-  HiLink sailGlobal   Define
-  HiLink sailPragma   PreProc
-  HiLink sailString   String
-  HiLink sailConstant Constant
-  HiLink sailTodo     Todo
-  HiLink sailFilename String
-  HiLink sailKind     Type
-  HiLink sailSpecial  PreProc
+" if version >= 508 || !exists("did_sail_syn_inits")
+"    if version < 508
+"       let did_sail_syn_inits = 1
+"       command -nargs=+ HiLink hi link <args>
+"    else
+"       command -nargs=+ HiLink hi def link <args>
+"    endif
+"   HiLink sailNumber   Number
+"   HiLink sailComment  Comment
+"   HiLink sailGlobal   Define
+"   HiLink sailPragma   PreProc
+"   HiLink sailString   String
+"   HiLink sailConstant Constant
+"   HiLink sailTodo     Todo
+"   HiLink sailFilename String
+"   HiLink sailKind     Type
+"   HiLink sailSpecial  PreProc
+" 
+" endif
 
-endif
-
-
+hi def link sailNumber   Number
+hi def link sailComment  Comment
+hi def link sailGlobal   Define
+hi def link sailPragma   PreProc
+hi def link sailString   String
+hi def link sailConstant Constant
+hi def link sailTodo     Todo
+hi def link sailFilename String
+hi def link sailKind     Type
+hi def link sailSpecial  PreProc
 
 
 let b:current_syntax = "sail"
